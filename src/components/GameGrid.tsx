@@ -3,17 +3,15 @@ import useGames from '../hooks/useGames';
 import { GameCard } from './GameCard';
 import { GameCardSkeleton } from './GameCardSkeleton';
 import { GameCardContainer } from './GameCardContainer';
-import { Genre } from '../hooks/useGenres';
 import { FC } from 'react';
-import { Platform } from '../hooks/usePlatforms';
+import { GameQuery } from '../App';
 
 type Props = {
-  selectedGenre: Genre | null;
-  selectedPlatform: Platform | null;
+  gameQuery: GameQuery;
 };
 
-export const GameGrid: FC<Props> = ({ selectedGenre, selectedPlatform }) => {
-  const { data, error, isLoading } = useGames(selectedGenre, selectedPlatform);
+export const GameGrid: FC<Props> = ({ gameQuery }) => {
+  const { data, error, isLoading } = useGames(gameQuery);
   const skeletons = [1, 2, 3, 4, 5, 6];
 
   return (
