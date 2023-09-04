@@ -5,13 +5,15 @@ import { GameCardSkeleton } from './GameCardSkeleton';
 import { GameCardContainer } from './GameCardContainer';
 import { Genre } from '../hooks/useGenres';
 import { FC } from 'react';
+import { Platform } from '../hooks/usePlatforms';
 
 type Props = {
   selectedGenre: Genre | null;
+  selectedPlatform: Platform | null;
 };
 
-export const GameGrid: FC<Props> = ({ selectedGenre }) => {
-  const { data, error, isLoading } = useGames(selectedGenre);
+export const GameGrid: FC<Props> = ({ selectedGenre, selectedPlatform }) => {
+  const { data, error, isLoading } = useGames(selectedGenre, selectedPlatform);
   const skeletons = [1, 2, 3, 4, 5, 6];
 
   return (
