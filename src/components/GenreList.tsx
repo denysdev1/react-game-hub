@@ -12,9 +12,10 @@ import { FC } from 'react';
 
 type Props = {
   handleSelectGenre: (genre: Genre) => void;
+  selectedGenre: Genre | null;
 };
 
-export const GenreList: FC<Props> = ({ handleSelectGenre }) => {
+export const GenreList: FC<Props> = ({ handleSelectGenre, selectedGenre }) => {
   const { data, error, isLoading } = useGenres();
 
   if (error) {
@@ -38,6 +39,7 @@ export const GenreList: FC<Props> = ({ handleSelectGenre }) => {
             <Button
               onClick={() => handleSelectGenre(genre)}
               fontSize='lg'
+              fontWeight={selectedGenre?.id === genre.id ? 'bold' : 'normal'}
               variant='link'
             >
               {genre.name}
