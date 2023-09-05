@@ -37,9 +37,10 @@ const App = () => {
 
   return (
     <Grid
-      templateAreas={{ base: `"nav" "main"`, lg: `"nav nav" "aside main"` }}
+      templateAreas={{ base: `"nav" "main"`, sm: `"nav" "main"`, lg: `"nav nav" "aside main"` }}
       templateColumns={{
-        base: '1fr',
+        base: '100%',
+        sm: '1fr',
         lg: '200px 1fr',
       }}
     >
@@ -55,7 +56,7 @@ const App = () => {
         </GridItem>
       </Show>
       <GridItem area='main'>
-        <Box paddingLeft={2}>
+        <Box paddingLeft={2} paddingRight={2}>
           <GameHeading gameQuery={gameQuery} />
           <HStack spacing={5} marginBottom={5}>
             <PlatformSelector

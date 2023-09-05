@@ -1,27 +1,41 @@
-# React + TypeScript + Vite
+# 🎮 GameHub
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+GameHub is a fully responsive web application designed for gamers and enthusiasts who want to explore, search, and categorize games based on various criteria. Whether you're looking for a game on a specific platform, within a particular genre, or just want to discover something new, GameHub has you covered. (includes light/dark mode)
 
-Currently, two official plugins are available:
+[DEMO-LINK](https://react-game-hub-pearl.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
 
-## Expanding the ESLint configuration
+TypeScript, React, Chakra UI, Axios
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Run Locally
 
-- Configure the top-level `parserOptions` property like this:
+Clone the project
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+```bash
+  git clone git@github.com:denysdev1/react-game-hub.git
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Go to the project directory
+
+```bash
+  cd react-game-hub
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm run dev
+```
+
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file
+
+`VITE_API_KEY` - Your API key from [rawg.io](https://rawg.io/)
