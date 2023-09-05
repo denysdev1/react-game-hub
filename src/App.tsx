@@ -3,15 +3,13 @@ import { NavBar } from './components/NavBar';
 import { GameGrid } from './components/GameGrid';
 import { GenreList } from './components/GenreList';
 import { useState } from 'react';
-import { Genre } from './hooks/useGenres';
 import { PlatformSelector } from './components/PlatformSelector';
-import { Platform } from './hooks/usePlatforms';
 import { SortSelector } from './components/SortSelector';
 import { GameHeading } from './components/GameHeading';
 
 export type GameQuery = {
-  genre: Genre | null;
-  platform: Platform | null;
+  genreId: number;
+  platformId: number;
   sortOrder: string;
   searchText: string;
 };
@@ -19,12 +17,12 @@ export type GameQuery = {
 const App = () => {
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
 
-  const handleSelectGenre = (genre: Genre) => {
-    setGameQuery({ ...gameQuery, genre });
+  const handleSelectGenre = (genreId: number) => {
+    setGameQuery({ ...gameQuery, genreId });
   };
 
-  const handleSelectPlatform = (platform: Platform) => {
-    setGameQuery({ ...gameQuery, platform });
+  const handleSelectPlatform = (platformId: number) => {
+    setGameQuery({ ...gameQuery, platformId });
   };
 
   const handleSelectSortOrder = (sortOrder: string) => {
@@ -37,7 +35,11 @@ const App = () => {
 
   return (
     <Grid
-      templateAreas={{ base: `"nav" "main"`, sm: `"nav" "main"`, lg: `"nav nav" "aside main"` }}
+      templateAreas={{
+        base: `"nav" "main"`,
+        sm: `"nav" "main"`,
+        lg: `"nav nav" "aside main"`,
+      }}
       templateColumns={{
         base: '100%',
         sm: '1fr',
@@ -51,7 +53,7 @@ const App = () => {
         <GridItem area='aside' paddingX={5}>
           <GenreList
             handleSelectGenre={handleSelectGenre}
-            selectedGenre={gameQuery.genre}
+            selectedGenreId={gameQuery.genreId}
           />
         </GridItem>
       </Show>
@@ -61,7 +63,7 @@ const App = () => {
           <HStack spacing={5} marginBottom={5}>
             <PlatformSelector
               handleSelectPlatform={handleSelectPlatform}
-              selectedPlatform={gameQuery.platform}
+              selectedPlatformId={gameQuery.platformId}
             />
             <SortSelector
               sortOrder={gameQuery.sortOrder}
