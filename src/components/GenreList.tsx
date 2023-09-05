@@ -41,6 +41,7 @@ export const GenreList: FC<Props> = ({ handleSelectGenre, selectedGenre }) => {
               fontSize='lg'
               fontWeight={selectedGenre?.id === genre.id ? 'bold' : 'normal'}
               variant='link'
+              overflow='hidden'
             >
               {genre.name}
             </Button>
