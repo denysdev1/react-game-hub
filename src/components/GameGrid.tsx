@@ -15,7 +15,7 @@ export const GameGrid: FC<Props> = ({ gameQuery }) => {
   const skeletons = [1, 2, 3, 4, 5, 6];
 
   if (error) {
-    return <Text>{error}</Text>;
+    return <Text>{error.message}</Text>;
   }
 
   return (
@@ -30,7 +30,7 @@ export const GameGrid: FC<Props> = ({ gameQuery }) => {
             <GameCardSkeleton />
           </GameCardContainer>
         ))}
-      {data.map((game) => (
+      {data?.results.map((game) => (
         <GameCardContainer key={game.name}>
           <GameCard game={game} />
         </GameCardContainer>

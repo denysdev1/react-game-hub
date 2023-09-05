@@ -17,7 +17,11 @@ type Props = {
 };
 
 export const GenreList: FC<Props> = ({ handleSelectGenre, selectedGenre }) => {
-  const { data, error, isLoading } = useGenres();
+  const {
+    data,
+    error,
+    isLoading,
+  } = useGenres();
 
   if (error) {
     return null;
@@ -33,7 +37,7 @@ export const GenreList: FC<Props> = ({ handleSelectGenre, selectedGenre }) => {
         Genres
       </Heading>
       <List>
-        {data.map((genre) => (
+        {data?.results?.map((genre) => (
           <ListItem key={genre.id} paddingY='5px'>
             <HStack>
               <Image
