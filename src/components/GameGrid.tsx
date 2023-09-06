@@ -11,7 +11,6 @@ export const GameGrid: FC = () => {
     data,
     error,
     isLoading,
-    isFetchingNextPage,
     fetchNextPage,
     hasNextPage,
   } = useGames();
