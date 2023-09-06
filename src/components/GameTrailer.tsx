@@ -1,12 +1,12 @@
 import { FC } from 'react';
-import useGameTrailer from '../hooks/useGameTrailer';
+import useGameTrailers from '../hooks/useGameTrailers';
 
 type Props = {
   id: number | string;
 };
 
 export const GameTrailer: FC<Props> = ({ id }) => {
-  const { data, isLoading, error } = useGameTrailer(id!);
+  const { data, isLoading, error } = useGameTrailers(id!);
 
   if (isLoading) {
     return null;
