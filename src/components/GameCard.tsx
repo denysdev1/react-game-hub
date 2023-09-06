@@ -6,12 +6,13 @@ import {
   Image,
   useColorMode,
 } from '@chakra-ui/react';
-import { Game } from '../hooks/useGames';
+import { Game } from '../entities/Game';
 import { PlatformIconList } from './PlatformIconList';
 import { CriticScore } from './CriticScore';
 import getCroppedImageUrl from '../services/image-url';
 import { FC } from 'react';
 import { Emoji } from './Emoji';
+import { Link } from 'react-router-dom';
 
 type Props = {
   game: Game;
@@ -43,7 +44,7 @@ export const GameCard: FC<Props> = ({ game }) => {
           <CriticScore score={game.metacritic} />
         </HStack>
         <Heading fontSize='2xl'>
-          {game.name}
+          <Link to={'games/' + game.slug}>{game.name}</Link>
           <Emoji rating={game.rating_top} />
         </Heading>
       </CardBody>
