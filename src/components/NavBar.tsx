@@ -4,15 +4,11 @@ import { ColorModeSwitch } from './ColorModeSwitch';
 import { SearchInput } from './SearchInput';
 import { FC } from 'react';
 
-type Props = {
-  handleSearch: (searchText: string) => void;
-};
-
-export const NavBar: FC<Props> = ({ handleSearch }) => {
+export const NavBar: FC = () => {
   return (
     <HStack padding='10px'>
       <Image src={Logo} boxSize='60px' />
-      <SearchInput handleSearch={handleSearch} />
+      <SearchInput />
       <ColorModeSwitch />
     </HStack>
   );

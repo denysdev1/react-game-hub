@@ -10,16 +10,11 @@ import {
 import useGenres from '../hooks/useGenres';
 import getCroppedImageUrl from '../services/image-url';
 import { FC } from 'react';
+import useGameQueryStore from '../store/gameQueryStore';
 
-type Props = {
-  handleSelectGenre: (genreId: number) => void;
-  selectedGenreId: number;
-};
-
-export const GenreList: FC<Props> = ({
-  handleSelectGenre,
-  selectedGenreId,
-}) => {
+export const GenreList: FC = () => {
+  const { genreId } = useGameQueryStore((s) => s.gameQuery);
+  const selectGenre = useGameQueryStore((s) => s.selectGenre);
   const { data, error, isLoading } = useGenres();
 
   if (error) {
@@ -46,9 +41,9 @@ export const GenreList: FC<Props> = ({
                 src={getCroppedImageUrl(genre.image_background)}
               />
               <Button
-                onClick={() => handleSelectGenre(genre.id)}
+                onClick={() => selectGenre(genre.id)}
                 fontSize='lg'
-                fontWeight={selectedGenreId === genre.id ? 'bold' : 'normal'}
+                fontWeight={genreId === genre.id ? 'bold' : 'normal'}
                 variant='link'
                 whiteSpace='normal'
                 textAlign='left'
