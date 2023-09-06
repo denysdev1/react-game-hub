@@ -6,7 +6,7 @@ GameHub is a fully responsive web application designed for gamers and enthusiast
 
 ## Tech Stack
 
-TypeScript, React, Chakra UI, Axios
+TypeScript, React, React-Router, React-Query, Zustand, Chakra UI, Axios
 
 ## Run Locally
 
